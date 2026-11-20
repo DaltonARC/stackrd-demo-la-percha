@@ -1,0 +1,15 @@
+{
+  "name": "stackrd-demo-la-percha",
+  "version": "0.1.0",
+  "private": true,
+  "description": "La Percha: demo de tienda online estática hecha por StackRD. Catálogo, carrito y pedido por WhatsApp.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
