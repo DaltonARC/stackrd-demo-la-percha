@@ -1,8 +1,20 @@
 (function () {
+  var TALLAS_R = ['S', 'M', 'L', 'XL'];
+  var TALLAS_P = ['28', '30', '32', '34'];
+  var TALLAS_C = ['38', '40', '42', '44'];
   var PRODUCTOS = [
-    { id: 'camisa', nombre: 'Camisa Denim Lunares', cat: 'Camisas', precio: 1500, tallas: ['S', 'M', 'L', 'XL'], alt: 'Camisa de mezclilla con lunares colgada de un gancho' },
-    { id: 'sudadera', nombre: 'Sudadera Gris Capucha', cat: 'Sudaderas', precio: 2200, tallas: ['M', 'L', 'XL'], alt: 'Persona de espaldas con una sudadera gris con capucha' }
+    { id: 'camisa', nombre: 'Camisa Denim Lunares', cat: 'Camisas', precio: 1500, tallas: TALLAS_R, alt: 'Camisa de mezclilla con lunares colgada de un gancho' },
+    { id: 'camisa-lino', nombre: 'Camisa Lino Cuello Mao', cat: 'Camisas', precio: 1800, tallas: TALLAS_R, alt: 'Camisa de lino color crema con cuello mao y mangas arremangadas' },
+    { id: 'camisa-cuadros', nombre: 'Camisa Cuadros Cibao', cat: 'Camisas', precio: 1700, tallas: TALLAS_R, alt: 'Camisa de cuadros oscuros con botones en el cuello colgada de un gancho' },
+    { id: 'sudadera', nombre: 'Sudadera Gris Capucha', cat: 'Sudaderas', precio: 2200, tallas: ['M', 'L', 'XL'], alt: 'Persona de espaldas con una sudadera gris con capucha' },
+    { id: 'hoodie', nombre: 'Hoodie Azul Loma', cat: 'Sudaderas', precio: 2400, tallas: ['M', 'L', 'XL'], alt: 'Persona con un hoodie azul con capucha frente a un paisaje de montaña' },
+    { id: 'jeans', nombre: 'Jean Recto Cibao', cat: 'Pantalones', precio: 1900, tallas: TALLAS_P, alt: 'Varios jeans azules colgados en fila' },
+    { id: 'pantalon', nombre: 'Pantalón de Vestir Gris', cat: 'Pantalones', precio: 2100, tallas: TALLAS_P, alt: 'Pantalón de vestir gris colgado frente a una ventana' },
+    { id: 'falda', nombre: 'Falda Plisada Negra', cat: 'Faldas', precio: 1600, tallas: ['S', 'M', 'L'], alt: 'Falda plisada negra con ribete de colores sobre fondo claro' },
+    { id: 'tenis', nombre: 'Tenis Blancos Centro', cat: 'Calzado', precio: 3200, tallas: TALLAS_C, alt: 'Pies con tenis blancos sobre el césped' },
+    { id: 'sandalias', nombre: 'Sandalias Cuero Oscuro', cat: 'Calzado', precio: 1200, tallas: TALLAS_C, alt: 'Par de sandalias oscuras sobre el césped de un parque' }
   ];
+
   var KEY = 'lapercha-carrito';
   var MAX_LINEAS = 20, MAX_CANT = 20;
   var $ = function (id) { return document.getElementById(id); };
@@ -40,7 +52,7 @@
       return '<label><input type="radio" name="t-' + p.id + '" value="' + esc(t) + '"' + (i === 0 ? ' checked' : '') + '><span>' + esc(t) + '</span></label>';
     }).join('');
     return '<article class="prod" data-id="' + p.id + '">' +
-      '<img src="img/' + p.id + '-480.webp" srcset="img/' + p.id + '-480.webp 480w, img/' + p.id + '-800.webp 800w" sizes="(min-width:560px) 240px, 50vw" width="480" height="600" loading="lazy" alt="' + esc(p.alt) + '">' +
+      '<img src="img/' + p.id + '-480.webp" srcset="img/' + p.id + '-480.webp 480w, img/' + p.id + '-800.webp 800w" sizes="(min-width:1100px) 270px, (min-width:700px) 33vw, 50vw" width="480" height="600" loading="lazy" alt="' + esc(p.alt) + '">' +
       '<div class="info"><span class="cat-name">' + esc(p.cat) + '</span><h3>' + esc(p.nombre) + '</h3>' +
       '<div class="price">' + fmt(p.precio) + '</div>' +
       '<fieldset class="tallas"><legend>Talla</legend>' + radios + '</fieldset>' +
